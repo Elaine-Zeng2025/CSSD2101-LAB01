@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: edu.cssd2101.lab01.ArrayUtilsTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 0.257 s <<< FAILURE! -- in edu.cssd2101.lab01.ArrayUtilsTest
+edu.cssd2101.lab01.ArrayUtilsTest.invalidUtilityArgumentsAreExplicit -- Time elapsed: 0.026 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.NullPointerException> but was: <java.lang.UnsupportedOperationException>
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
+	at edu.cssd2101.lab01.ArrayUtilsTest.invalidUtilityArgumentsAreExplicit(ArrayUtilsTest.java:72)
+Caused by: java.lang.UnsupportedOperationException: T5 is an exercise
+	at edu.cssd2101.lab01.BookArrayUtils.filterPriceAtMost(BookArrayUtils.java:29)
+	at edu.cssd2101.lab01.ArrayUtilsTest.lambda$invalidUtilityArgumentsAreExplicit$0(ArrayUtilsTest.java:72)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	... 2 more
+
+edu.cssd2101.lab01.ArrayUtilsTest.mergePreservesSlotsWhileDedupKeepsFirstInstance -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.UnsupportedOperationException: T5 is an exercise
+	at edu.cssd2101.lab01.BookArrayUtils.removeDuplicates(BookArrayUtils.java:141)
+	at edu.cssd2101.lab01.ArrayUtilsTest.mergePreservesSlotsWhileDedupKeepsFirstInstance(ArrayUtilsTest.java:63)
+
+edu.cssd2101.lab01.ArrayUtilsTest.sparseFiltersAreCompactAndDoNotMutateInput -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.UnsupportedOperationException: T5 is an exercise
+	at edu.cssd2101.lab01.BookArrayUtils.filterPriceAtMost(BookArrayUtils.java:29)
+	at edu.cssd2101.lab01.ArrayUtilsTest.sparseFiltersAreCompactAndDoNotMutateInput(ArrayUtilsTest.java:18)
+
+edu.cssd2101.lab01.ArrayUtilsTest.averageRoundsHalfEvenAndDistinguishesNoDataFromFree -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.UnsupportedOperationException: T5 is an exercise
+	at edu.cssd2101.lab01.BookArrayUtils.averagePrice(BookArrayUtils.java:98)
+	at edu.cssd2101.lab01.ArrayUtilsTest.averageRoundsHalfEvenAndDistinguishesNoDataFromFree(ArrayUtilsTest.java:40)
+
