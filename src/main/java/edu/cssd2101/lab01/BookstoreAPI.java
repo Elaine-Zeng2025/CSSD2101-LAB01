@@ -125,8 +125,15 @@ public interface BookstoreAPI {
      * @throws ArithmeticException if the total exceeds long range
      */
     default long inventoryValueCents() {
-        // TODO T3: implement the documented extension contract.
-        throw new UnsupportedOperationException("T3 is an exercise");
+        // Ivan
+        // Create variable to add up all values
+        long sum = 0;
+
+        // Loop through all books and add their price to the sum
+        for (Book book : allBooks()) {
+            sum = Math.addExact(sum, book.priceCents());
+        }
+        return sum;
     }
 
     /**
