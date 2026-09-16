@@ -125,15 +125,8 @@ public interface BookstoreAPI {
      * @throws ArithmeticException if the total exceeds long range
      */
     default long inventoryValueCents() {
-        // Ivan
-        // Create variable to add up all values
-        long sum = 0;
-
-        // Loop through all books and add their price to the sum
-        for (Book book : allBooks()) {
-            sum = Math.addExact(sum, book.priceCents());
-        }
-        return sum;
+        // TODO T3: implement the documented extension contract.
+        throw new UnsupportedOperationException("T3 is an exercise");
     }
 
     /**
@@ -142,20 +135,8 @@ public interface BookstoreAPI {
      * @return expensive entry or empty
      */
     default Optional<Book> mostExpensive() {
-        // Ivan
-        // Create a new variable to hold the best book
-        Book mostExpensive = null;
-
-        // Loop through all the books 
-        for (Book book : allBooks())
-            // Compare if the current book is more expensive than the best book, if it is, set best to mostExpensive
-            // mostExpensive == null sets the first book to mostExpensive to compare
-            if (mostExpensive == null || book.priceCents() > mostExpensive.priceCents()) {
-                mostExpensive = book;
-            }
-        // Returns the most expensive book, if there is no book, it will return an empty optional
-        // Empty optional allows isEmpty() to work since it is a method that uses Optional to return True or False
-        return Optional.ofNullable(mostExpensive);
+        // TODO T3: implement the documented extension contract.
+        throw new UnsupportedOperationException("T3 is an exercise");
     }
 
     /**
@@ -164,20 +145,7 @@ public interface BookstoreAPI {
      * @return latest entry or empty
      */
     default Optional<Book> mostRecent() {
-        // Ivan
-        // Set a variable for boook
-        Book recent = null;
-        
-        // Loops through all books
-        for (Book book : allBooks()) {
-            // Sets first book to recent, then compares year of current book to next one.
-            // If the book is more recent, it will set that book to recent and continue to compare until the end of the list
-            if (recent == null || book.year() > recent.year()) {
-                recent = book;
-            }
-        }
-
-        // Returns the most expensive book, if there is no book, it will return an empty optional
-        return Optional.ofNullable(recent);
+        // TODO T3: implement the documented extension contract.
+        throw new UnsupportedOperationException("T3 is an exercise");
     }
 }
