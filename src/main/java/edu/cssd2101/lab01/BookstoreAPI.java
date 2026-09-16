@@ -164,7 +164,20 @@ public interface BookstoreAPI {
      * @return latest entry or empty
      */
     default Optional<Book> mostRecent() {
-        // TODO T3: implement the documented extension contract.
-        throw new UnsupportedOperationException("T3 is an exercise");
+        // Ivan
+        // Set a variable for boook
+        Book recent = null;
+
+        // Loops through all books
+        for (Book book : allBooks()) {
+            // Sets first book to recent, then compares year of current book to next one.
+            // If the book is more recent, it will set that book to recent and continue to compare until the end of the list
+            if (recent == null || book.year() > recent.year()) {
+                recent = book;
+            }
+        }
+
+        // Returns the most expensive book, if there is no book, it will return an empty optional
+        return Optional.ofNullable(recent);
     }
 }
