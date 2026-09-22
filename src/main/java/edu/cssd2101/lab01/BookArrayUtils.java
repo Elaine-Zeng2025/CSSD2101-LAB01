@@ -25,8 +25,18 @@ public final class BookArrayUtils {
      * @throws IllegalArgumentException if maximum is negative
      */
     public static Book[] filterPriceAtMost(Book[] books, long maximum) {
-        // TODO T5: implement the documented extension contract.
-        throw new UnsupportedOperationException("T5 is an exercise");
+        Objects.requireNonNull(books);
+        if (maximum < 0) throw new IllegalArgumentException("maximum must be nonnegative");
+        int count = 0;
+        for (Book b : books) {
+            if (b != null && b.priceCents() <= maximum) count++;
+        }
+        Book[] result = new Book[count];
+        int i = 0;
+        for (Book b : books) {
+            if (b != null && b.priceCents() <= maximum) result[i++] = b;
+        }
+        return result;
     }
 
     /**
