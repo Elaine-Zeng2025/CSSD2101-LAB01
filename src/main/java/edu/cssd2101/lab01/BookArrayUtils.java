@@ -26,7 +26,7 @@ public final class BookArrayUtils {
      */
     public static Book[] filterPriceAtMost(Book[] books, long maximum) {
         Objects.requireNonNull(books);
-        if (maximum < 0) throw new IllegalArgumentException("maximum must be nonnegative");
+        if (maximum < 0) throw new IllegalArgumentException("negative maximum");
         int count = 0;
         for (Book b : books) {
             if (b != null && b.priceCents() <= maximum) count++;
