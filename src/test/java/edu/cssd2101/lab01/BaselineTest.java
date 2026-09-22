@@ -20,7 +20,7 @@ class BaselineTest {
             assertEquals(1, store.size());
             //added code below
             List<Book> oldSnapshot = store.allBooks();
-            Book secondBook = new Book("0132350882", "Clean Code", "Robert Martin", 3299, 2008);
+            Book secondBook = new Book("1098121228", "Python Data Science Handbook", "Jake VanderPlas", 3196, 2016);
             assertTrue(store.add(secondBook));
             assertEquals(List.of(book),oldSnapshot);
             assertEquals(List.of(book,secondBook),store.allBooks());
