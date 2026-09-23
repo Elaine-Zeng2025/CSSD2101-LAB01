@@ -76,7 +76,7 @@ class BookTest {
     @Test
     void yearTest3() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book bookTest3 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 1451);
+            Book bookTest3 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 1449);
         });
     }
 
