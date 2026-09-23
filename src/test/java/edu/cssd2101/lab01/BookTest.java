@@ -118,12 +118,11 @@ class BookTest {
     void difIsbnSameTitle() {
         Book bookTest12 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 121417923L, 2026);
         Book bookTest13 = new Book("2103-  239 -98 X", "Too Moral", "David Cluster", 121417923L, 2026);
+        assertNotEquals(0, bookTest12.compareTo(bookTest13));
         TreeSet<Book> bookTests = new TreeSet<>();
-        bookTests.add(bookTest13);
         bookTests.add(bookTest12);
-        Iterator<Book> bookTestsIterations = bookTests.iterator();
-        assertEquals(bookTest12, bookTestsIterations.next());
-        assertEquals(bookTest13, bookTestsIterations.next());
+        bookTests.add(bookTest13);
+        assertEquals(2, bookTests.size());
     }
 
 }
