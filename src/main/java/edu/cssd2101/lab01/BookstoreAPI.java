@@ -92,6 +92,36 @@ public interface BookstoreAPI {
      */
     default List<Book> findByAuthor(String query) {
         // TODO T3: implement the documented extension contract.
+
+        // creating the List to add matching books to
+        List<Book> correctAuthorBooks = new ArrayList<Book>();
+        //default Book[] snapshotArray() {
+            //return allBooks().toArray(Book[]::new);
+        //}
+
+        // --idea:
+        // --take snapshot of correctAuthorBooks once done??? by doing List.copyOf(correctAuthorBooks)
+        // (like how they did it in the allBooks() method
+        // --
+
+        // for loop is old idea, if using ArrayListBookstore doenst work then try for loop again
+        for (Book curBook : allBooks()) {
+            if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
+                // add curBook to list
+                correctAuthorBooks.add(curBook);
+            }
+
+
+
+            // maybe reference elaine's code instead of the loop so u can return snapshot
+
+            // can also try using ArrayListBookstore(), like
+            // ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
+            // (in for loop, if author matches query) correctAuthorBooks.add(Book curBook);
+            // after, call allBooks() to save snapshot of my correctAuthorBooks
+            // ^like this: correctAuthorBooks.allBooks();
+        }
+
         throw new UnsupportedOperationException("T3 is an exercise");
     }
 
