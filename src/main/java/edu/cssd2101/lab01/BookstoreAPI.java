@@ -124,6 +124,16 @@ public interface BookstoreAPI {
         // Creating a ArrayListBookstore object to store books with matching authors
         ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
 
+        //if query is null, throw NullPointerException
+        if (query == null) {
+            throw new NullPointerException("author query is null");
+        }
+
+        // if query is blank, throw IllegalArgumentException
+        if (query.isBlank()) {
+            throw new IllegalArgumentException("author query is empty");
+        }
+
         // For loop that loops through every book from the store, and checks if the author of it matches the query
         for (Book curBook : this.allBooks()) {
               //if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
@@ -149,6 +159,9 @@ public interface BookstoreAPI {
      */
     default List<Book> findByPriceRange(long minimum, long maximum) {
         // TODO T3: implement the documented extension contract.
+
+        //int minimum
+
         throw new UnsupportedOperationException("T3 is an exercise -- findPriceRange incomplete");
     }
 
