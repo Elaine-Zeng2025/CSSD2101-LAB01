@@ -91,62 +91,28 @@ public interface BookstoreAPI {
      * @throws IllegalArgumentException if query is blank
      */
     default List<Book> findByAuthor(String query) {
-        // TODO T3: implement the documented extension contract.
-
-        // creating the List to add matching books to
-        //List<Book> correctAuthorBooks = new List<Book>();
-        //default Book[] snapshotArray() {
-            //return allBooks().toArray(Book[]::new);
-        //}
-
-        // --idea:
-        // --take snapshot of correctAuthorBooks once done??? by doing List.copyOf(correctAuthorBooks)
-        // (like how they did it in the allBooks() method
-        // --
-
-        // for loop is old idea, if using ArrayListBookstore doenst work then try for loop again
-        //for (Book curBook : allBooks()) {
-            //if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
-                // add curBook to list
-                //correctAuthorBooks.add(curBook);
-            //}
-        //}
-
-
-            // maybe reference elaine's code instead of the loop so u can return snapshot
-
-            // can also try using ArrayListBookstore(), like
-            // ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
-            // (in for loop, if author matches query) correctAuthorBooks.add(Book curBook);
-            // after, call allBooks() to save snapshot of my correctAuthorBooks
-            // ^like this: correctAuthorBooks.allBooks();
 
         // Creating a ArrayListBookstore object to store books with matching authors
         ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
 
-        //if query is null, throw NullPointerException
+        // If query is null, throw NullPointerException
         if (query == null) {
             throw new NullPointerException("author query is null");
         }
 
-        // if query is blank, throw IllegalArgumentException
+        // If query is blank, throw IllegalArgumentException
         if (query.isBlank()) {
             throw new IllegalArgumentException("author query is empty");
         }
 
         // For loop that loops through every book from the store, and checks if the author of it matches the query
         for (Book curBook : this.allBooks()) {
-              //if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
-                //if (query.strip().toLowerCase(java.util.Locale.ROOT).compareTo(curBook.author().toLowerCase()) == 0) {
             if (curBook.author().toLowerCase().contains(query.strip().toLowerCase(java.util.Locale.ROOT))) {
                   // adds the book with matching author to the list of books with a matching author
                   correctAuthorBooks.add(curBook);
               }
         }
         return (correctAuthorBooks.allBooks());
-
-
-        //throw new UnsupportedOperationException("T3 is an exercise");
     }
 
     /**
@@ -158,31 +124,27 @@ public interface BookstoreAPI {
      * @throws IllegalArgumentException if bounds are invalid
      */
     default List<Book> findByPriceRange(long minimum, long maximum) {
-        // TODO T3: implement the documented extension contract.
 
-        // throws if the given minimum value is below 0
+        // Throws an IllegalArgumentException if the given minimum value is below 0
         if (minimum < 0) {
             throw new IllegalArgumentException("minimum must be a non-negative integar!!");
         }
 
-        // throws if the given maximum value is smaller than the given minimum valye
+        // Throws an IllegalArgumentException if the given maximum value is smaller than the given minimum value
         if (maximum < minimum) {
             throw new IllegalArgumentException("maximum must not be less than the minimum");
         }
 
-        // creates an ArrayListBookstore object to store books within the specified price range
+        // Creates an ArrayListBookstore object to store books within the specified price range
         ArrayListBookstore costFilteredBooks = new ArrayListBookstore();
 
-        // for loop that loops through all of the bookstore's books and adds the ones within the price range into the costFilteredBooks array
+        // For loop that loops through all of the bookstore's books and adds the ones within the price range into the costFilteredBooks array
         for (Book curBook : allBooks()) {
             if (curBook.priceCents() >= minimum && curBook.priceCents() <= maximum) {
                 costFilteredBooks.add(curBook);
             }
         }
-
         return costFilteredBooks.allBooks();
-
-        //throw new UnsupportedOperationException("T3 is an exercise -- findPriceRange incomplete");
     }
 
     /**
