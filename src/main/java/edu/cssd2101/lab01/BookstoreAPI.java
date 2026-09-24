@@ -94,7 +94,7 @@ public interface BookstoreAPI {
         // TODO T3: implement the documented extension contract.
 
         // creating the List to add matching books to
-        List<Book> correctAuthorBooks = new ArrayList<Book>();
+        //List<Book> correctAuthorBooks = new List<Book>();
         //default Book[] snapshotArray() {
             //return allBooks().toArray(Book[]::new);
         //}
@@ -105,12 +105,12 @@ public interface BookstoreAPI {
         // --
 
         // for loop is old idea, if using ArrayListBookstore doenst work then try for loop again
-        for (Book curBook : allBooks()) {
-            if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
+        //for (Book curBook : allBooks()) {
+            //if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
                 // add curBook to list
-                correctAuthorBooks.add(curBook);
-            }
-
+                //correctAuthorBooks.add(curBook);
+            //}
+        //}
 
 
             // maybe reference elaine's code instead of the loop so u can return snapshot
@@ -120,9 +120,23 @@ public interface BookstoreAPI {
             // (in for loop, if author matches query) correctAuthorBooks.add(Book curBook);
             // after, call allBooks() to save snapshot of my correctAuthorBooks
             // ^like this: correctAuthorBooks.allBooks();
-        }
 
-        throw new UnsupportedOperationException("T3 is an exercise");
+        // Creating a ArrayListBookstore object to store books with matching authors
+        ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
+
+        // For loop that loops through every book from the store, and checks if the author of it matches the query
+        for (Book curBook : this.allBooks()) {
+              //if (query.strip().compareToIgnoreCase(curBook.author()) == 0) {
+                //if (query.strip().toLowerCase(java.util.Locale.ROOT).compareTo(curBook.author().toLowerCase()) == 0) {
+            if (curBook.author().toLowerCase().contains(query.strip().toLowerCase(java.util.Locale.ROOT))) {
+                  // adds the book with matching author to the list of books with a matching author
+                  correctAuthorBooks.add(curBook);
+              }
+        }
+        return (correctAuthorBooks.allBooks());
+
+
+        //throw new UnsupportedOperationException("T3 is an exercise");
     }
 
     /**
@@ -135,7 +149,7 @@ public interface BookstoreAPI {
      */
     default List<Book> findByPriceRange(long minimum, long maximum) {
         // TODO T3: implement the documented extension contract.
-        throw new UnsupportedOperationException("T3 is an exercise");
+        throw new UnsupportedOperationException("T3 is an exercise -- findPriceRange incomplete");
     }
 
     /**

@@ -1,61 +1,46 @@
 -------------------------------------------------------------------------------
 Test set: edu.cssd2101.lab01.StoreContractTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 3, Errors: 5, Skipped: 0, Time elapsed: 0.148 s <<< FAILURE! -- in edu.cssd2101.lab01.StoreContractTest
-edu.cssd2101.lab01.StoreContractTest.fullArrayRejectsNewEntryButRecognizesDuplicateFirst -- Time elapsed: 0.003 s <<< ERROR!
-java.lang.UnsupportedOperationException: T4 is an exercise
-	at edu.cssd2101.lab01.FixedArrayBookstore.removeByIsbn(FixedArrayBookstore.java:37)
-	at edu.cssd2101.lab01.StoreContractTest.fullArrayRejectsNewEntryButRecognizesDuplicateFirst(StoreContractTest.java:98)
-
-edu.cssd2101.lab01.StoreContractTest.overflowIsExplicitAndDoesNotMutateInventory -- Time elapsed: 0.005 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.ArithmeticException> but was: <java.lang.UnsupportedOperationException>
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
-	at edu.cssd2101.lab01.StoreContractTest.overflowIsExplicitAndDoesNotMutateInventory(StoreContractTest.java:109)
-Caused by: java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.inventoryValueCents(BookstoreAPI.java:129)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	... 2 more
-
+Tests run: 12, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 0.052 s <<< FAILURE! -- in edu.cssd2101.lab01.StoreContractTest
 edu.cssd2101.lab01.StoreContractTest.emptyContract(boolean)[1] -- Time elapsed: 0.004 s <<< ERROR!
-java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.inventoryValueCents(BookstoreAPI.java:129)
-	at edu.cssd2101.lab01.StoreContractTest.emptyContract(StoreContractTest.java:26)
+java.lang.UnsupportedOperationException: T3 is an exercise -- findPriceRange incomplete
+	at edu.cssd2101.lab01.BookstoreAPI.findByPriceRange(BookstoreAPI.java:151)
+	at edu.cssd2101.lab01.StoreContractTest.emptyContract(StoreContractTest.java:34)
 
-edu.cssd2101.lab01.StoreContractTest.emptyContract(boolean)[2] -- Time elapsed: 0.005 s <<< ERROR!
-java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.inventoryValueCents(BookstoreAPI.java:129)
-	at edu.cssd2101.lab01.StoreContractTest.emptyContract(StoreContractTest.java:26)
+edu.cssd2101.lab01.StoreContractTest.emptyContract(boolean)[2] -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: T3 is an exercise -- findPriceRange incomplete
+	at edu.cssd2101.lab01.BookstoreAPI.findByPriceRange(BookstoreAPI.java:151)
+	at edu.cssd2101.lab01.StoreContractTest.emptyContract(StoreContractTest.java:34)
 
-edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(boolean)[1] -- Time elapsed: 0.008 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.NullPointerException> but was: <java.lang.UnsupportedOperationException>
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
-	at edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(StoreContractTest.java:85)
-Caused by: java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.findByAuthor(BookstoreAPI.java:95)
-	at edu.cssd2101.lab01.StoreContractTest.lambda$invalidOperationsPreserveState$4(StoreContractTest.java:85)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	... 2 more
-
-edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(boolean)[2] -- Time elapsed: 0.005 s <<< FAILURE!
+edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(boolean)[1] -- Time elapsed: 0.006 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.UnsupportedOperationException>
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
-	at edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(StoreContractTest.java:83)
-Caused by: java.lang.UnsupportedOperationException: T4 is an exercise
-	at edu.cssd2101.lab01.FixedArrayBookstore.removeByIsbn(FixedArrayBookstore.java:37)
-	at edu.cssd2101.lab01.StoreContractTest.lambda$invalidOperationsPreserveState$2(StoreContractTest.java:83)
+	at edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(StoreContractTest.java:86)
+Caused by: java.lang.UnsupportedOperationException: T3 is an exercise -- findPriceRange incomplete
+	at edu.cssd2101.lab01.BookstoreAPI.findByPriceRange(BookstoreAPI.java:151)
+	at edu.cssd2101.lab01.StoreContractTest.lambda$invalidOperationsPreserveState$5(StoreContractTest.java:86)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	... 2 more
 
-edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(boolean)[1] -- Time elapsed: 0.003 s <<< ERROR!
-java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.findByAuthor(BookstoreAPI.java:95)
+edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(boolean)[2] -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.UnsupportedOperationException>
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
+	at edu.cssd2101.lab01.StoreContractTest.invalidOperationsPreserveState(StoreContractTest.java:86)
+Caused by: java.lang.UnsupportedOperationException: T3 is an exercise -- findPriceRange incomplete
+	at edu.cssd2101.lab01.BookstoreAPI.findByPriceRange(BookstoreAPI.java:151)
+	at edu.cssd2101.lab01.StoreContractTest.lambda$invalidOperationsPreserveState$5(StoreContractTest.java:86)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	... 2 more
+
+edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(boolean)[1] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[INDIGO Java [0132350882] 101 cents, Other [123456789X] 200 cents]> but was: <[]>
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1199)
 	at edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(StoreContractTest.java:61)
 
-edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(boolean)[2] -- Time elapsed: 0.004 s <<< ERROR!
-java.lang.UnsupportedOperationException: T3 is an exercise
-	at edu.cssd2101.lab01.BookstoreAPI.findByAuthor(BookstoreAPI.java:95)
+edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(boolean)[2] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[INDIGO Java [0132350882] 101 cents, Other [123456789X] 200 cents]> but was: <[]>
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1199)
 	at edu.cssd2101.lab01.StoreContractTest.searchAnalyticsAndRemovalPreserveOrder(StoreContractTest.java:61)
 
