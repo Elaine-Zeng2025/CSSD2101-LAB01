@@ -1,0 +1,43 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+--no-fonts
+-encoding
+'UTF-8'
+-public
+--release
+26
+-sourcepath
+'C:/Users/100ca/IdeaProjects/CSSD2101-LAB/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/100ca/IdeaProjects/CSSD2101-LAB/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-Xdoclint:all
+-doctitle
+'CSSD2101 Lab 01 starter 2026.1 API'
+-use
+-version
+-windowtitle
+'CSSD2101 Lab 01 starter 2026.1 API'
+edu.cssd2101.lab01
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\src\main\java = 1789581202469
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\allclasses-index.html = 1789581732555
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\allpackages-index.html = 1789581732561
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\element-list = 1789581732371
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\help-doc.html = 1789581732624
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\index-all.html = 1789581732608
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\index.html = 1789581732617
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\member-search-index.js = 1789581732564
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\module-search-index.js = 1789581732562
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\overview-tree.html = 1789581732521
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\package-search-index.js = 1789581732563
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\search.html = 1789581732613
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\tag-search-index.js = 1789581732565
+C:\Users\100ca\IdeaProjects\CSSD2101-LAB\target\reports\apidocs\type-search-index.js = 1789581732564
