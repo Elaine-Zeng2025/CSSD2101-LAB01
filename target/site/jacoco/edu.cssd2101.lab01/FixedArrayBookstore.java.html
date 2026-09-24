@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FixedArrayBookstore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CSSD2101 Lab 01 starter</a> &gt; <a href="index.source.html" class="el_package">edu.cssd2101.lab01</a> &gt; <span class="el_source">FixedArrayBookstore.java</span></div><h1>FixedArrayBookstore.java</h1><pre class="source lang-java linenums">package edu.cssd2101.lab01;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+/** Fixed-capacity array store: live entries occupy exactly indices zero through size-1. */
+public final class FixedArrayBookstore implements BookstoreAPI {
+
+    private final Book[] books;
+    private int size;
+
+    /**
+     * Creates an empty bounded catalogue.
+     *
+     * @param capacity maximum entries, including zero
+     * @throws IllegalArgumentException if capacity is negative
+     */
+<span class="fc" id="L19">    public FixedArrayBookstore(int capacity) {</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (capacity &lt; 0) {</span>
+<span class="nc" id="L21">            throw new IllegalArgumentException(&quot;capacity must be nonnegative&quot;);</span>
+        }
+<span class="fc" id="L23">        books = new Book[capacity];</span>
+<span class="fc" id="L24">    }</span>
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean add(Book book) {
+<span class="fc" id="L29">        Objects.requireNonNull(book, &quot;book&quot;);</span>
+
+<span class="pc bfc" id="L31" title="All 2 branches covered.">        for (int i = 0; i &lt; size; i++) {</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">            if (books[i].equals(book)) {</span>
+<span class="fc" id="L33">                return false;</span>
+            }
+        }
+
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (size == books.length) {</span>
+<span class="nc" id="L38">            throw new IllegalStateException(&quot;catalogue is full&quot;);</span>
+        }
+
+<span class="fc" id="L41">        books[size++] = book;</span>
+<span class="fc" id="L42">        return true;</span>
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean removeByIsbn(String isbn) {
+<span class="nc" id="L48">        Objects.requireNonNull(isbn, &quot;isbn&quot;);</span>
+
+<span class="nc" id="L50">        String normalizedIsbn = Book.normalizeIsbn(isbn);</span>
+
+        // Find the book with the matching ISBN
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = 0; i &lt; size; i++) {</span>
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">            if (books[i].isbn().equals(normalizedIsbn)) {</span>
+
+                // Shift all following books one position to the left
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                for (int j = i; j &lt; size - 1; j++) {</span>
+<span class="nc" id="L59">                    books[j] = books[j + 1];</span>
+                }
+
+                // Clear the unused last slot
+<span class="nc" id="L63">                books[size - 1] = null;</span>
+
+                // Update the number of books
+<span class="nc" id="L66">                size--;</span>
+
+<span class="nc" id="L68">                return true;</span>
+            }
+        }
+
+        // No matching ISBN was found
+<span class="nc" id="L73">        return false;</span>
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public List&lt;Book&gt; allBooks() {
+<span class="fc" id="L79">        return List.copyOf(</span>
+<span class="fc" id="L80">                Arrays.asList(</span>
+<span class="fc" id="L81">                        Arrays.copyOf(books, size)</span>
+                )
+        );
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int size() {
+<span class="fc" id="L89">        return size;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>
