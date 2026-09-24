@@ -160,12 +160,22 @@ public interface BookstoreAPI {
     default List<Book> findByPriceRange(long minimum, long maximum) {
         // TODO T3: implement the documented extension contract.
 
-        //creating an ArrayListBookstore object to store books within the specified price range
+        // throws if the given minimum value is below 0
+        if (minimum < 0) {
+            throw new IllegalArgumentException("minimum must be a non-negative integar!!");
+        }
+
+        // throws if the given maximum value is smaller than the given minimum valye
+        if (maximum < minimum) {
+            throw new IllegalArgumentException("maximum must not be less than the minimum");
+        }
+
+        // creates an ArrayListBookstore object to store books within the specified price range
         ArrayListBookstore costFilteredBooks = new ArrayListBookstore();
 
-        // for loop that loops through all of the bookstore's books and adds the ones within the price range into costFilteredBooks array
+        // for loop that loops through all of the bookstore's books and adds the ones within the price range into the costFilteredBooks array
         for (Book curBook : allBooks()) {
-            if (curBook.priceCents() > minimum && curBook.priceCents() < maximum) {
+            if (curBook.priceCents() >= minimum && curBook.priceCents() <= maximum) {
                 costFilteredBooks.add(curBook);
             }
         }
