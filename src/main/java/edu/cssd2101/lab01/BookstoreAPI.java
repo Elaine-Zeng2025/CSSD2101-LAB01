@@ -91,8 +91,28 @@ public interface BookstoreAPI {
      * @throws IllegalArgumentException if query is blank
      */
     default List<Book> findByAuthor(String query) {
-        // TODO T3: implement the documented extension contract.
-        throw new UnsupportedOperationException("T3 is an exercise");
+
+        // Creating a ArrayListBookstore object to store books with matching authors
+        ArrayListBookstore correctAuthorBooks = new ArrayListBookstore();
+
+        // If query is null, throw NullPointerException
+        if (query == null) {
+            throw new NullPointerException("author query is null");
+        }
+
+        // If query is blank, throw IllegalArgumentException
+        if (query.isBlank()) {
+            throw new IllegalArgumentException("author query is empty");
+        }
+
+        // For loop that loops through every book from the store, and checks if the author of it matches the query
+        for (Book curBook : this.allBooks()) {
+            if (curBook.author().toLowerCase().contains(query.strip().toLowerCase(java.util.Locale.ROOT))) {
+                  // adds the book with matching author to the list of books with a matching author
+                  correctAuthorBooks.add(curBook);
+              }
+        }
+        return (correctAuthorBooks.allBooks());
     }
 
     /**
@@ -104,8 +124,27 @@ public interface BookstoreAPI {
      * @throws IllegalArgumentException if bounds are invalid
      */
     default List<Book> findByPriceRange(long minimum, long maximum) {
-        // TODO T3: implement the documented extension contract.
-        throw new UnsupportedOperationException("T3 is an exercise");
+
+        // Throws an IllegalArgumentException if the given minimum value is below 0
+        if (minimum < 0) {
+            throw new IllegalArgumentException("minimum must be a non-negative integar!!");
+        }
+
+        // Throws an IllegalArgumentException if the given maximum value is smaller than the given minimum value
+        if (maximum < minimum) {
+            throw new IllegalArgumentException("maximum must not be less than the minimum");
+        }
+
+        // Creates an ArrayListBookstore object to store books within the specified price range
+        ArrayListBookstore costFilteredBooks = new ArrayListBookstore();
+
+        // For loop that loops through all of the bookstore's books and adds the ones within the price range into the costFilteredBooks array
+        for (Book curBook : allBooks()) {
+            if (curBook.priceCents() >= minimum && curBook.priceCents() <= maximum) {
+                costFilteredBooks.add(curBook);
+            }
+        }
+        return costFilteredBooks.allBooks();
     }
 
     /**
