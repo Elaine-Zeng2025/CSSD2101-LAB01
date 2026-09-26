@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.Optional;
+import java.math.RoundingMode;
+import java.util.LinkedHashMap;
 
 /**
  * Pure sparse-array operations except explicitly named in-place sorts.
@@ -104,8 +106,20 @@ public final class BookArrayUtils {
      * @throws NullPointerException if books is null
      */
     public static Optional<BigDecimal> averagePrice(Book[] books) {
-        // TODO T5: implement the documented extension contract.
-        throw new UnsupportedOperationException("T5 is an exercise");
+        Objects.requireNonNull(books);
+        BigDecimal totalCents = BigDecimal.ZERO;
+        int count = 0;
+        for (Book b : books) {
+            if (b != null) {
+                totalCents = totalCents.add(BigDecimal.valueOf(b.priceCents()));
+                count++;
+            }
+        }
+        if (count == 0) return Optional.empty();
+        return Optional.of(
+                totalCents
+                        .movePointLeft(2)
+                        .divide(BigDecimal.valueOf(count), 2, RoundingMode.HALF_EVEN));
     }
 
     /**
@@ -147,7 +161,11 @@ public final class BookArrayUtils {
      * @throws NullPointerException if books is null
      */
     public static Book[] removeDuplicates(Book[] books) {
-        // TODO T5: implement the documented extension contract.
-        throw new UnsupportedOperationException("T5 is an exercise");
+        Objects.requireNonNull(books);
+        LinkedHashMap<String, Book> firstByIsbn = new LinkedHashMap<>();
+        for (Book b : books) {
+            if (b != null) firstByIsbn.putIfAbsent(b.isbn(), b);
+        }
+        return firstByIsbn.values().toArray(new Book[0]);
     }
 }
