@@ -10,32 +10,32 @@ class BookModelTest {
 
     @Test
     void normalizationTest1() {
-        assertEquals("268582369X", Book.normalizeIsbn("268-5823  69 X"));
+        assertEquals("268582369X", Book.normalizeIsbn("    268-582369X   "));
     }
 
     @Test
     void normalizationTest2() {
-        assertEquals("1576821349612X", Book.normalizeIsbn("157  68-2134 9612 X"));
+        assertEquals("1576821349612X", Book.normalizeIsbn("15768-21349612X        "));
     }
 
     @Test
     void malformedIdentifierTest1() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book.normalizeIsbn("5 49-481 378912 11 34X");
+            Book.normalizeIsbn("      549-4813789121134X");
         });
     }
 
     @Test
     void malformedIdentifierTest2() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book.normalizeIsbn("5 49-41 34X");
+            Book.normalizeIsbn("  549-4134X    ");
         });
     }
 
     @Test
     void malformedIdentifierTest3() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book.normalizeIsbn("268-5823  69x");
+            Book.normalizeIsbn("268-582369x      ");
         });
     }
 
@@ -49,7 +49,7 @@ class BookModelTest {
     @Test
     void blankTextTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book.text("-  -  ");
+            Book.text("    ");
         });
     }
 
