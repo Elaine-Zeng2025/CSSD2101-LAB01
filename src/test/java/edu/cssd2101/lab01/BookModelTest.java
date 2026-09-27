@@ -68,7 +68,7 @@ class BookModelTest {
 
     @Test
     void yearTest2() {
-        Book bookTest2 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 2026);
+        Book bookTest2 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 2027);
         assertEquals(2026, bookTest2.year());
     }
 
@@ -82,7 +82,7 @@ class BookModelTest {
     @Test
     void yearTest4() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Book bookTest4 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 2027);
+            Book bookTest4 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 2028);
         });
     }
 
