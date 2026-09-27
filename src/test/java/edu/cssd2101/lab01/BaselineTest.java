@@ -18,13 +18,12 @@ class BaselineTest {
             Book[] copy = store.snapshotArray();
             copy[0] = null;
             assertEquals(1, store.size());
-            //added code below
             List<Book> oldSnapshot = store.allBooks();
             Book secondBook = new Book("1098121228", "Python Data Science Handbook", "Jake VanderPlas", 3196, 2016);
             assertTrue(store.add(secondBook));
             assertEquals(List.of(book),oldSnapshot);
             assertEquals(List.of(book,secondBook),store.allBooks());
-            //
+            
             assertEquals(java.util.List.of(book), store.findByTitle("JAVA"));
             assertThrows(UnsupportedOperationException.class, () -> store.allBooks().clear());
         }
