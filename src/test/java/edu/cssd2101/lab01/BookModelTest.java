@@ -19,7 +19,7 @@ class BookModelTest {
     // Test if normalizeIsbn() will return the right ISBN for a 13 digit ISBN
     @Test
     void normalizationTest2() {
-        assertEquals("15768213496124", Book.normalizeIsbn("15768-213496124        "));
+        assertEquals("1576821349612", Book.normalizeIsbn("15768-21349612        "));
     }
 
     // Chloe
@@ -88,8 +88,8 @@ class BookModelTest {
     // Test if year() will return the right maximum year
     @Test
     void yearTest2() {
-        Book bookTest2 = new Book("268-5823  69 X", "Too Moral", "David Cluster", 501294721123L, 2027);
-        assertEquals(2026, bookTest2.year());
+        Book bookTest2 = new Book("268-582369X    ", "Too Moral", "David Cluster", 501294721123L, 2027);
+        assertEquals(2027, bookTest2.year());
     }
 
     // Chloe
