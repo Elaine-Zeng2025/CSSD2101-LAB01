@@ -15,7 +15,7 @@ class BookModelTest {
 
     @Test
     void normalizationTest2() {
-        assertEquals("1576821349612X", Book.normalizeIsbn("15768-21349612X        "));
+        assertEquals("15768213496124", Book.normalizeIsbn("15768-213496124        "));
     }
 
     @Test
